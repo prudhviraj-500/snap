@@ -1,7 +1,7 @@
 name: 
 on:
   pull_request:
-    types: [opened]
+    types: [closed]
     branches:
       - master
   #pull_request:
