@@ -17,28 +17,28 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref }}
 
 
-    steps:
-      - name: echo branch name
-        id: branch
-        run: |
-          # echo ${{ github.head_ref }}
-          feature_name=$(echo ${{ env.BRANCH_NAME }} | cut -d "-" -f 3)
-          echo "$feature_name"
-          echo "::set-output name=feature::$feature_name"
+     steps:
+       - name: echo branch name
+         id: branch
+         run: |
+           # echo ${{ github.head_ref }}
+           feature_name=$(echo ${{ env.BRANCH_NAME }} | cut -d "-" -f 3)
+           echo "$feature_name"
+           echo "::set-output name=feature::$feature_name"
       
       
-      - name: echo etc
-        run: |
-          echo "branch name is ${{ steps.branch.outputs.feature }}"
+       - name: echo etc
+         run: |
+           echo "branch name is ${{ steps.branch.outputs.feature }}"
           
           
        
-      - uses: actions/checkout@v2
-        with:
-          ref:  ${{ steps.branch.outputs.feature }}
+       - uses: actions/checkout@v2
+         with:
+           ref:  ${{ steps.branch.outputs.feature }}
           
-       - name: contents of a file
-         run: |
-           ls -al
+        - name: contents of a file
+          run: |
+            ls -al
          
       
