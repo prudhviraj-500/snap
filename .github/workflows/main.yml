@@ -35,7 +35,7 @@ jobs:
           ref:  ${{ steps.branch.outputs.feature }}
           
       - name: contents of a file
-         run: |
-           ls -al
+        run: |
+          ls -al
          
       
